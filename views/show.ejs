@@ -1,0 +1,33 @@
+<%- include("./partials/header") %>
+<div class = "container  d-flex justify-content-center " id = "content">
+    <div class = "row">
+		<div class = "col-lg-3">
+			
+		</div>
+		<div class = "col-lg-6">
+			<h2 class="card-title text-center"><%= blog.title %></h2>
+			<div class="card">
+            <img src="<%=blog.image %>" alt="" class="card-img-top img-fluid" >
+            <div class="card-block">
+                <div class = "container">
+					<p><%- blog.body %> </p>
+					<footer class="blockquote-footer mt-2">
+						Posted on <%=blog.created.toDateString() %> by 
+						<cite title="Source Title">						 		<%=blog.author.username.charAt(0).toUpperCase()+blog.author.username.slice(1) %>
+</cite>
+					</footer>
+					 <a class="btn btn-outline-warning  my-2" href="/blogs/<%= blog.id %>/edit">EDIT</a>
+                	<form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                    <button class="btn btn-outline-danger btn-sm mb-1" >DELETE</button>
+                </form>
+				</div>
+            </div>
+        	</div>
+    	</div>
+	</div>    
+</div>
+		
+	
+
+
+<%- include("./partials/footer") %>

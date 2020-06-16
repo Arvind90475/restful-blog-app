@@ -1,0 +1,17 @@
+<%- include("./partials/header") %>
+<div class="row" id = "content">
+    <div class="col-md-12">
+        <form class="form-signin" action="/blogs/<%= blog._id %>?_method=PUT" method="POST">
+            <h1 class="h3 mb-3 font-weight-normal text-center">Edit Blog !</h1>
+            <label for="Title" class="sr-only"><Title></Title></label>
+            <input type="text" id="inputEmail" class="form-control" placeholder="Title" name="blog[title]" value="<%= blog.title %>" required autofocus>
+            <label for="image" class="sr-only">Image</label>
+            <input type="text" id="inputPassword" class="form-control" placeholder="Image Url" name="blog[image]" value="<%= blog.image %> required>
+            <label for="blog content" class="sr-only">Blog Content</label>
+            <textarea id="inputPassword" class="form-control" name="blog[body]" required><%= blog.body %> </textarea>
+            <button class="btn btn-block btn-outline-warning" type="submit">Edit</button>
+        </form>
+    </div>
+</div> 
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,24 @@
+<%- include("./partials/header") %> 
+<div class = "container text-center" id = "content">
+	<div class = "row">
+	<% blogs.forEach(function(blog){ %>
+		<div class=" col-md-6 col-lg-4 mb-4">
+        	<div class="card">
+				<img src="<%=blog.image %>" class="card-img-top" alt="<%= blog.title %>">
+				<div class="card-body">
+					<h5 class="card-title"><%= blog.title %></h5>
+					<p class="card-text"><%- blog.body.substring(0,100) %>..</p>
+					<a href="/blogs/<%= blog._id%>" class="btn btn-primary">Read More</a>
+					<footer class="blockquote-footer mt-2">
+						Posted on <%=blog.created.toDateString() %> by 
+						<cite title="Source Title">						 		<%=blog.author.username.charAt(0).toUpperCase()+blog.author.username.slice(1) %>
+</cite>
+					</footer>
+				</div>
+			</div>		
+		</div>			
+	<% }) %>
+	</div>
+</div>
+	
+<%- include("./partials/footer") %>
